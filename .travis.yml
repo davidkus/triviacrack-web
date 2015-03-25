@@ -2,7 +2,10 @@ language: ruby
 script: bundle exec rake spec
 rvm:
 - 2.2.1
+before_script:
+  - psql -c 'create database triviacrack-web_test;' -U postgres
 addons:
+  postgresql: "9.3"
   code_climate:
     repo_token:
       secure: VFfdrKNdW8h5Y7uShY/MxTCoc1M1b9/+siic46Px9ofeZo2IUOjltwEiZOTqirOvZ7lLoRJU+ZMQVjYan5XK0PT2q7lo/+E7OeRVu9LY3e9q+Jr0g7CmAQ4R0csSQ7dCaWkdqvynahXBOlyEM8NsQ5wZO5/7JrPAaWoL+HyG68s=
