@@ -1,3 +1,6 @@
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 require 'rspec/its'
 require "support/pundit"
 require 'factory_girl'

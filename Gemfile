@@ -2,7 +2,6 @@ ruby "2.2.1"
 
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 gem 'thin', '~> 1.6.3'
@@ -65,6 +64,8 @@ group :development, :test do
   gem 'rspec-activejob', '~> 0.2.0'
 
   gem 'fuubar', '~> 2.0.0'
+
+  gem "codeclimate-test-reporter"
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
