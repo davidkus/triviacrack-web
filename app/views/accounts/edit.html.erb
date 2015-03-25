@@ -1,0 +1,24 @@
+<h2 class="ui dividing header"><%= t('accounts.relink_account') %></h2>
+
+<%= form_for(@account, html: { class: "ui form" }) do |f| %>
+  <p>
+    <%= t('accounts.edit_description') %>
+    <%= link_to help_path do %>
+      <i class="question icon"></i>
+    <% end %>
+  </p>
+  <div class="field">
+    <%= f.label :email %>
+    <%= email_field_tag :email, @email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= password_field_tag :password, nil, autocomplete: "off", autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit I18n.t('accounts.relink_account'), class: "ui submit blue button" %>
+    <%= link_to I18n.t('common.back'), accounts_path, class: "ui button" %>
+  </div>
+<% end %>

@@ -1,0 +1,36 @@
+<h2 class="ui dividing header"><%= t('accounts.index_title') %></h2>
+
+<div class="ui divided list">
+  <% if @accounts.none? %>
+    <div class="item">
+      <div class="content">
+        <div class="header">
+          <%= t('accounts.no_accounts_linked') %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% @accounts.each_with_index do |account, index| %>
+    <% avatar = (index + 1) % 7 %>
+    <div class="item">
+      <%= image_tag "avatar#{avatar}.png", class: "ui avatar image" %>
+      <div class="content">
+        <div class="header">
+          <%= link_to account.username, account_path(account) %>
+        </div>
+        <%= t('accounts.session_expires_in') %> <%= time_ago_in_words account.expiration %>
+      </div>
+      <div class="right floated">
+        <%= link_to I18n.t('accounts.renew'), edit_account_path(account),
+                    class: "ui compact button" %>
+        <%= link_to I18n.t('accounts.remove'), account, method: :delete,
+                    class: "ui compact red button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to new_account_path, class: "ui blue button" do %>
+  <i class="user icon"></i> <%= t('accounts.link_account') %>
+<% end %>

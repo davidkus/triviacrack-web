@@ -1,0 +1,7 @@
+<h2 class="ui dividing header">TriviaCrack Bot</h2>
+
+<% if user_signed_in? %>
+  <%= render 'registered' %>
+<% else %>
+  <%= render "visitor" %>
+<% end %>

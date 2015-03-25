@@ -1,0 +1,31 @@
+<div class="ui fixed teal inverted main menu">
+<div class="ui page grid">
+<div class="column">
+  <div class="left menu">
+    <%= link_to root_path, class: "item #{link_active "welcome"}" do %>
+      <i class="trophy icon"></i> <%= t('layouts.home') %>
+    <% end %>
+    <%= link_to accounts_path, class: "item #{link_active "accounts"}" do %>
+      <i class="users icon"></i> <%= t('layouts.accounts') %>
+    <% end %>
+    <%= link_to games_path, class: "item #{link_active "games"}" do %>
+      <i class="game icon"></i> <%= t('layouts.games') %>
+    <% end %>
+  </div>
+  <div class="right menu">
+    <div class="ui pointing dropdown link item">
+      <i class="dropdown icon"></i>
+      <span class="text"><%= t('layouts.my_account') %></span>
+      <div class="menu">
+        <%= link_to I18n.t("layouts.manage"), edit_user_registration_path , class: "item" %>
+        <%= link_to I18n.t("layouts.sign_out"), destroy_user_session_path,
+                    method: :delete, class: "item" %>
+      </div>
+    </div>
+    <%= link_to help_path, class: "item #{link_active "help"}" do %>
+      <i class="question icon"></i>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>

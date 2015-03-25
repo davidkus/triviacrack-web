@@ -1,0 +1,11 @@
+<% if game.opponent.facebook_id != "" %>
+  <%= image_tag "//graph.facebook.com/#{game.opponent.facebook_id}/picture?width=80&height=80", class: "ui avatar image" %>
+<% else %>
+  <%= image_tag "avatar1.png", class: "ui avatar image" %>
+<% end %>
+<div class="content">
+  <div class="header">
+    <%= game.opponent.facebook_name || game.opponent.username %> 
+  </div>
+  Expires in <%= time_ago_in_words game.expiration_date %>
+</div>

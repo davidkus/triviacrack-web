@@ -1,0 +1,21 @@
+<h2 class="ui dividing header"><%= t('games.create_new_game') %></h2>
+
+<%= form_tag(games_path, class: "ui form") do %>
+  <% if @accounts.any? %>
+    <p> <%= t('games.new_description') %> </p>
+    <div class="field">
+      <%= label_tag :account_id, 'Account' %>
+      <%= select_tag :account_id,
+                     options_from_collection_for_select(@accounts, :id, :username),
+                     class: "ui select dropdown" %>
+    </div>
+  <% else %>
+    <p> <%= t('games.no_accounts') %> </p>
+  <% end %>
+  <div class="actions">
+    <% if @accounts.any? %>
+      <%= submit_tag I18n.t('games.create_new_game'), class: "ui submit blue button" %>
+    <% end %>
+    <%= link_to I18n.t('common.back'), games_path, class: "ui button" %>
+  </div>
+<% end %>

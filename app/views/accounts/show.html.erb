@@ -1,0 +1,12 @@
+<h3 class="ui dividing header"><%= @account.username %></h3>
+
+<p>
+<%= t('accounts.email') %>: <%= @account.email %>
+</p>
+
+<p>
+<%= t('accounts.session_expires_on') %> <%= @account.expiration.to_s(:long) %>
+</p>
+
+<%= link_to I18n.t('accounts.renew'), edit_account_path(@account), class: "ui blue button" %>
+<%= link_to I18n.t('common.back'), accounts_path, class: "ui button" %>

@@ -1,0 +1,18 @@
+<div class="ui fixed teal inverted main menu">
+<div class="ui page grid">
+<div class="column">
+  <div class="left menu">
+    <%= link_to root_path, class: "item #{link_active "welcome"}" do %>
+      <i class="trophy icon"></i> <%= t('layouts.home') %>
+    <% end %>
+  </div>
+  <div class="right menu">
+    <%= link_to I18n.t("layouts.sign_in"), new_user_session_path, class: "item" %>
+    <%= link_to I18n.t("layouts.sign_up"), new_user_registration_path, class: "item" %>
+    <%= link_to help_path, class: "item #{link_active "help"}" do %>
+      <i class="question icon"></i>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>

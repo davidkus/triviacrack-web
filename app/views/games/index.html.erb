@@ -1,0 +1,127 @@
+<h2 class="ui dividing header"><%= t('games.index_title') %></h2>
+
+<div class="ui top attached tabular menu">
+  <a class="active item" data-tab="first">
+    <%= t('games.your_turn') %> <span class="ui green label"><%= @playable_games.count %></span>
+  </a>
+  <a class="item" data-tab="second">
+    <%= t('games.their_turn') %> <span class="ui yellow label"><%= @their_turn_games.count %></span>
+  </a>
+  <a class="item" data-tab="third">
+    <%= t('games.pending_approval') %> <span class="ui blue label"><%= @pending_games.count %></span>
+  </a>
+  <a class="item" data-tab="fourth">
+    <%= t('games.finished_games') %> <span class="ui red label"><%= @finished_games.count %></span>
+  </a>
+</div>
+<div class="ui bottom attached active tab segment" data-tab="first">
+  <div class="ui divided list">
+    <% if @accounts.none? || @playable_games.none? %>
+      <div class="item">
+        <div class="content">
+          <div class="header">
+            <%= t('games.no_games') %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% @playable_games.each do |item| %>
+      <% game = item[:game] %>
+      <% account = item[:account] %>
+      <div class="item">
+        <%= render partial: "avatar",
+                   locals: { game: game } %>
+        <div class="right floated">
+          <%= render partial: "score", locals: { game: game } %>
+          <% if @queued_games.include? game.id %>
+            <div class="compact ui teal disabled button">
+              Queued
+            </div>
+          <% else %>
+            <%= link_to I18n.t('games.play_game'),
+                        account_play_game_path(account, game.id),
+                        method: :put,
+                        class: "compact ui teal button" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="ui bottom attached tab segment" data-tab="second">
+  <div class="ui divided list">
+    <% if @accounts.none? || @their_turn_games.none? %>
+      <div class="item">
+        <div class="content">
+          <div class="header">
+            <%= t('games.no_games') %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% @their_turn_games.each do |item| %>
+      <% game = item[:game] %>
+      <div class="item">
+        <%= render partial: "avatar",
+                   locals: { game: game } %>
+        <div class="right floated">
+          <%= render partial: "score", locals: { game: game } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="ui bottom attached tab segment" data-tab="third">
+  <div class="ui divided list">
+    <% if @accounts.none? || @pending_games.none? %>
+      <div class="item">
+        <div class="content">
+          <div class="header">
+            <%= t('games.no_games') %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% @pending_games.each do |item| %>
+      <% game = item[:game] %>
+      <div class="item">
+        <%= render partial: "avatar",
+                   locals: { game: game } %>
+        <div class="right floated">
+          <%= render partial: "score", locals: { game: game } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="ui bottom attached tab segment" data-tab="fourth">
+  <div class="ui divided list">
+    <% if @accounts.none? || @finished_games.none? %>
+      <div class="item">
+        <div class="content">
+          <div class="header">
+            <%= t('games.no_games') %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% @finished_games.each do |item| %>
+      <% game = item[:game] %>
+      <div class="item">
+        <%= render partial: "avatar",
+                   locals: { game: game } %>
+        <div class="right floated">
+          <% if game.my_statistics.crowns.count > game.opponent_statistics.crowns.count %>
+            <span class="ui green label"><%= t('games.you_won') %></span>
+          <% else %>
+            <span class="ui red label"><%= t('games.you_lost') %></span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<br/>
+
+<%= link_to I18n.t('games.create_new_game'), new_game_path, class: "ui blue button" %>

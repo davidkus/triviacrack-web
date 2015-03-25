@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TriviaCrack Bot</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if user_signed_in? %>
+  <%= render "layouts/menu" %>
+<% else %>
+  <%= render "layouts/visitor_menu" %>
+<% end %>
+
+<div class="ui page grid">
+  <div class="column">
+    <%= semantic_flash %> 
+    <div class="ui segment">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
