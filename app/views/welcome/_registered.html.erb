@@ -1,1 +1,7 @@
-<p>Get started by <%= link_to "adding an account", new_account_path %></p>
+<p>
+  <% if current_user.accounts.none? %>
+    Get started by <%= link_to "adding an account", new_account_path %>.
+  <% else %>
+    See your <%= link_to "games in progress", games_path %>.
+  <% end %>
+</p>
