@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   end
 
   # Resque Web
-  resque_web_constraint = lambda { |request| request.remote_ip == '127.0.0.1' }
   constraints resque_web_constraint do
     mount ResqueWeb::Engine => "/resque_web"
     ResqueWeb::Engine.eager_load!
