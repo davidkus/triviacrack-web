@@ -1,5 +1,31 @@
 <h2 class="ui dividing header">Help</h2>
 
 <h4 class="ui dividing header">What is this?</h4>
+<p>
 
-<p>Find me in app/views/help/index.html.erb</p>
+</p>
+
+<h4 class="ui dividing header">Linking Your Account</h4>
+<p>
+In order for the Trivia Crack bot to play games for you, you must first link your Trivia Crack account.
+</p>
+<p>
+To link an account, follow <%= link_to "this link", new_account_path %> and then enter the email and password for your Trivia Crack account. <b>Your password will not be stored.</b>
+</p>
+<p>
+If you signed in to the Trivia Crack app using your Facebook account, you will need to set a password. Open the Trivia Crack app and go to settings.
+</p>
+<p>
+Then, tap on your account.
+</p>
+<p>
+Enter a password and then tap 'save' in the top right corner.
+</p>
+<p>
+You can then use this password along with your Facebook email to sign in.
+</p>
+
+<h4 class="ui dividing header">Renew Your Account</h4>
+<p>
+When you link a Trivia Crack account, a token that grants access to your account is generated and stored. This token expires within <b>30 days</b> of linking. To renew the token, you must click the 'Renew' button and re-enter your account password.
+</p>
