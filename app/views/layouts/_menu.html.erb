@@ -5,11 +5,11 @@
     <%= link_to root_path, class: "item #{link_active "welcome"}" do %>
       <i class="trophy icon"></i> <%= t('layouts.home') %>
     <% end %>
-    <%= link_to accounts_path, class: "item #{link_active "accounts"}" do %>
-      <i class="users icon"></i> <%= t('layouts.accounts') %>
-    <% end %>
     <%= link_to games_path, class: "item #{link_active "games"}" do %>
       <i class="game icon"></i> <%= t('layouts.games') %>
+    <% end %>
+    <%= link_to accounts_path, class: "item #{link_active "accounts"}" do %>
+      <i class="users icon"></i> <%= t('layouts.accounts') %>
     <% end %>
   </div>
   <div class="right menu">
