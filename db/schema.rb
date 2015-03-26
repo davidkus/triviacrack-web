@@ -20,11 +20,10 @@ ActiveRecord::Schema.define(version: 20150325225442) do
     t.string   "username"
     t.string   "session_id"
     t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "expiration"
     t.string   "email"
-    t.integer  "queued_games", default: [],              array: true
   end
 
   add_index "accounts", ["user_id"], name: "index_accounts_on_user_id", using: :btree

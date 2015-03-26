@@ -3,7 +3,7 @@ script: bundle exec rake spec
 rvm:
 - 2.2.1
 before_script:
-  - psql -c 'create database triviacrack-web_test;' -U postgres
+  - psql -c 'create database triviacrackweb_test;' -U postgres
 addons:
   postgresql: "9.3"
   code_climate:
