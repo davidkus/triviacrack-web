@@ -57,15 +57,15 @@ group :development, :test do
 
   gem 'factory_girl', '~> 4.5.0', require: false
 
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', '~> 2.8.0', require: false
 
   gem 'faker', '~> 1.4.3', require: false
 
-  gem 'rspec-activejob', '~> 0.2.0'
+  gem 'rspec-activejob', '~> 0.2.0', require: false
 
   gem 'fuubar', '~> 2.0.0'
 
-  gem "codeclimate-test-reporter"
+  gem 'codeclimate-test-reporter', '~> 0.4.7', require: false
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

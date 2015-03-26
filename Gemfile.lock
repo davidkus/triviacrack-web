@@ -275,7 +275,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  codeclimate-test-reporter
+  codeclimate-test-reporter (~> 0.4.7)
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)
   factory_girl (~> 4.5.0)
@@ -296,7 +296,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   semantic-ui-sass!
-  shoulda-matchers
+  shoulda-matchers (~> 2.8.0)
   spring
   thin (~> 1.6.3)
   triviacrack!
