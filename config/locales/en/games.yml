@@ -1,0 +1,17 @@
+en:
+  games:
+    index_title: "Games"
+    your_turn: "Your Turn"
+    their_turn: "Their Turn"
+    pending_approval: "Pending Approval"
+    finished_games: "Finished Games"
+    no_games: "There are no games to display."
+    play_game: "Play for me!"
+    create_new_game: "Create Game"
+    you_won: "You won!"
+    you_lost: "You lost!"
+    new_description: "Create a new game against a random player."
+    no_accounts: "None of your accounts can currently start a game."
+    game_added_to_queue: "The game has been added to the queue."
+    new_game_created: "A new game has been created for %{username}."
+    unable_to_create_game: "Unable to create game for %{username}."

@@ -1,0 +1,9 @@
+en:
+  pundit:
+    account_policy:
+      show?: "Not permitted to view this account."
+      edit?: "Not permitted to edit this account."
+      create?: "Not permitted to create games for this account."
+      update?: "Not permitted to update this account."
+      destroy?: "Not permitted to destroy this account."
+      play_game?: "Not permitted to play games for this account."

@@ -1,0 +1,10 @@
+en:
+  layouts:
+    home: "TriviaCrack Bot"
+    accounts: "Accounts"
+    games: "Games"
+    sign_in: "Sign In"
+    sign_up: "Sign Up"
+    my_account: "My Account"
+    manage: "Manage"
+    sign_out: "Sign Out"

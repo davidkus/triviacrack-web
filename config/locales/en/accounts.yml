@@ -1,0 +1,18 @@
+en:
+  accounts:
+    email: "Email"
+    remove: "Remove"
+    renew: "Renew"
+    new_title: "Link Account"
+    index_title: "Accounts"
+    link_account: "Link Account"
+    relink_account: "ReLink Account"
+    invalid_username_password: "Invalid username / password."
+    account_unlinked: "Account was successfully unlinked."
+    account_linked: "Account was successfully linked."
+    invalid_account: "Invalid account."
+    session_expires_on: "Session expires on"
+    session_expires_in: "Session expires in"
+    no_accounts_linked: "There are no Trivia Crack accounts linked to your account."
+    new_description: "Enter your email and password for your Trivia Crack account."
+    edit_description: "When your session expires, you will need sign in to your Trivia Crack account again to renew your session."
