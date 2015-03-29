@@ -1,5 +1,6 @@
 en:
   pundit:
+    default: 'You cannot perform this action.'
     account_policy:
       show?: "Not permitted to view this account."
       edit?: "Not permitted to edit this account."
