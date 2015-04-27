@@ -11,4 +11,5 @@ function load_modules() {
     $(this).closest('.message').fadeOut();
   });
   $('.menu .item').tab();
+  $('.ui.checkbox').checkbox();
 }
