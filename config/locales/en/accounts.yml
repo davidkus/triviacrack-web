@@ -1,11 +1,14 @@
 en:
   activerecord:
+    attributes:
+      account:
+        id: 'Account'
     errors:
       models:
         account:
           attributes:
-            email:
-              taken: "has already been linked to another account"
+            id:
+              taken: "has already been linked to another user"
   accounts:
     email: "Email"
     remove: "Remove"
