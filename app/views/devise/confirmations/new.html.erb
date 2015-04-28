@@ -2,7 +2,7 @@
 
 <%= form_for(resource, as: resource_name,
                        url: confirmation_path(resource_name),
-                       html: { method: :post, class: "ui form" }) do |f| %>
+                       html: { method: :post, class: "ui error form segment" }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">

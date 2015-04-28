@@ -1,6 +1,7 @@
 <h2 class="ui dividing header"><%= t('accounts.relink_account') %></h2>
 
-<%= form_for(@account, html: { class: "ui form" }) do |f| %>
+<%= form_for(@account, html: { class: "ui error form segment" }) do |f| %>
+  <%= error_messages @account %>
   <p>
     <%= t('accounts.edit_description') %>
     <%= link_to help_path do %>

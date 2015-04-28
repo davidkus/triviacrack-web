@@ -1,6 +1,7 @@
 <h2 class="ui dividing header"><%= t('accounts.new_title') %></h2>
 
-<%= form_for(@account, html: { class: "ui form" }) do |f| %>
+<%= form_for(@account, html: { class: "ui error form segment" }) do |f| %>
+  <%= error_messages @account %>
   <p>
     <%= t('accounts.new_description') %>
     <%= link_to help_path do %>

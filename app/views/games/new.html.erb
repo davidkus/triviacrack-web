@@ -1,6 +1,6 @@
 <h2 class="ui dividing header"><%= t('games.create_new_game') %></h2>
 
-<%= form_tag(games_path, class: "ui form") do %>
+<%= form_tag(games_path, class: "ui error form segment") do %>
   <% if @accounts.any? %>
     <p> <%= t('games.new_description') %> </p>
     <div class="field">
