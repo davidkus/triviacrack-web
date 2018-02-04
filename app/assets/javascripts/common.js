@@ -1,7 +1,8 @@
 $(document).ready(load_modules);
-$(document).on('page:load', load_modules);
+$(document).on('turbolinks:load', load_modules);
 
 function load_modules() {
+  $('.ui.dropdown').dropdown();
   $('.ui.dropdown.pointing').dropdown({
     on: 'hover'
   });

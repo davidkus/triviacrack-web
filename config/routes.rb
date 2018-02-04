@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resque_web_constraint = lambda do |request|
     current_user = request.env['warden'].user
     is_admin = current_user.present? && current_user.respond_to?(:admin?) && current_user.admin?
-    request.remote_ip == '127.0.0.1' || is_admin
+    request.remote_ip == '127.0.0.1' || request.remote_ip == '::1' || is_admin
   end
 
   # Resque Web

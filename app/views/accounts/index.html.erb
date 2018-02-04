@@ -12,9 +12,8 @@
   <% end %>
 
   <% @accounts.each_with_index do |account, index| %>
-    <% avatar = (index + 1) % 7 %>
     <div class="item">
-      <%= image_tag "avatar#{avatar}.png", class: "ui avatar image" %>
+      <%= render "common/avatar", { username: account.username } %>
       <div class="content">
         <div class="header">
           <%= link_to account.username, account_path(account) %>
