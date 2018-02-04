@@ -1,25 +1,27 @@
-<div class="ui fixed inverted teal menu">
+<div class="ui large top fixed menu">
   <div class="ui container">
     <%= link_to root_path, class: "header item" do %>
-      <i class="trophy icon"></i> <%= t('layouts.home') %>
+      <i class="big teal trophy icon"></i>
     <% end %>
     <%= link_to games_path, class: "item" do %>
-      <i class="game icon"></i> <%= t('layouts.games') %>
+      <%= t('layouts.games') %>
     <% end %>
     <%= link_to accounts_path, class: "item" do %>
-      <i class="users icon"></i> <%= t('layouts.accounts') %>
+      <%= t('layouts.accounts') %>
     <% end %>
-    <div class="ui dropdown item">
-      <span class="text"><%= t('layouts.my_account') %></span>
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <%= link_to I18n.t("layouts.manage"), edit_user_registration_path , class: "item" %>
-        <%= link_to I18n.t("layouts.sign_out"), destroy_user_session_path,
-                    method: :delete, class: "item" %>
+    <div class="right menu">
+      <div class="ui dropdown item">
+        <span class="text"><%= t('layouts.my_account') %></span>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <%= link_to I18n.t("layouts.manage"), edit_user_registration_path , class: "item" %>
+          <%= link_to I18n.t("layouts.sign_out"), destroy_user_session_path,
+                      method: :delete, class: "item" %>
+        </div>
       </div>
+      <%= link_to help_path, class: "item" do %>
+        <i class="question icon"></i>
+      <% end %>
     </div>
-    <%= link_to help_path, class: "right item" do %>
-      <i class="question icon"></i>
-    <% end %>
   </div>
 </div>

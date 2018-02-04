@@ -8,7 +8,6 @@ function load_modules() {
   });
   $('select.dropdown').dropdown();
   $('.message .close').on('click', function() {
-    console.log('clicked');
     $(this).closest('.message').fadeOut();
   });
   $('.menu .item').tab();

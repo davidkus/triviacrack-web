@@ -1,32 +1,47 @@
-<h2 class="ui dividing header"><%= t('devise.registrations.register') %></h2>
+<h2 class="ui teal header">
+  <div class="content">
+    <%= t('devise.registrations.register') %>
+  </div>
+</h2>
 
 <%= form_for(resource, as: resource_name,
                        url: registration_path(resource_name),
-                       html: {class: "ui error form segment"}) do |f| %>
+                       html: {class: "ui large error form"}) do |f| %>
+
+  <div class="ui piled segment">
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="mail icon"></i>
+        <%= f.email_field :email, autofocus: true, placeholder: t('devise.sessions.email') %>
+      </div>
+    </div>
+
+    <div class="field">
+      <% if @validatable %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <div class="ui left icon input">
+        <i class="lock icon"></i>
+        <%= f.password_field :password, autocomplete: "off", placeholder: t('devise.sessions.password') %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="lock icon"></i>
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise.registrations.password_confirmation') %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit I18n.t('devise.registrations.sign_up'), class: "ui fluid large teal submit button" %>
+    </div>
+  </div>
 
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit I18n.t('devise.registrations.sign_up'), class: "ui submit blue button" %>
-  </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="ui message">
+  <%= render "devise/shared/links" %>
+</div>

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include Pundit
 
+  layout :layout_by_resource
+
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   # Prevent CSRF attacks by raising an exception.
@@ -8,6 +10,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :user && action_name == "new"
+      "devise"
+    else
+      "application"
+    end
+  end
 
   def user_not_authorized(exception)
    policy_name = exception.policy.class.to_s.underscore
