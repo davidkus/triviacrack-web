@@ -1,11 +1,16 @@
 language: ruby
 script: bundle exec rake spec
 rvm:
-- 2.2.1
+- 2.4.1
 before_script:
-  - psql -c 'create database triviacrackweb_test;' -U postgres
+- psql -c 'create database triviacrackweb_test;' -U postgres
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 addons:
-  postgresql: "9.3"
-  code_climate:
-    repo_token:
-      secure: VFfdrKNdW8h5Y7uShY/MxTCoc1M1b9/+siic46Px9ofeZo2IUOjltwEiZOTqirOvZ7lLoRJU+ZMQVjYan5XK0PT2q7lo/+E7OeRVu9LY3e9q+Jr0g7CmAQ4R0csSQ7dCaWkdqvynahXBOlyEM8NsQ5wZO5/7JrPAaWoL+HyG68s=
+  postgresql: '9.3'
+env:
+  global:
+    secure: kM1+RFqdvoc53+1pF1LwT+7Eq/UroZ0VpQHYWMrfQpZcwMqA+u29VrxWdr/H70tq+N9z0tI4yKSYlTZYGQV2mntXAbCvFUQpUK6BhDZRqqLlTPyoURI4kn+NPzYEZo6Q+pk+npygIA2AAuNcY0CHz8TS6IPTsKhvuUA7Z7cChcI=
