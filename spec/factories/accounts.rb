@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :account do
     username    {Faker::Internet.user_name}
     session_id  {Faker::Lorem.characters(20)}

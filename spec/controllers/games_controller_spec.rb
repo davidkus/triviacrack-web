@@ -122,7 +122,7 @@ RSpec.describe GamesController, type: :controller do
 
   describe 'POST #create' do
 
-    let(:action) { post :create, account_id: account_id }
+    let(:action) { post :create, params: { account_id: account_id } }
 
     # Account
     before { create(:account, id: account_id, user: user, session_id: session_id) }
@@ -148,7 +148,7 @@ RSpec.describe GamesController, type: :controller do
 
   describe 'PUT #play_game' do
 
-    let(:action) { put :play_game, account_id: account_id, game_id: game_id }
+    let(:action) { put :play_game, params: { account_id: account_id, game_id: game_id } }
 
     # Account
     before { create(:account, id: account_id, user: user, session_id: session_id) }

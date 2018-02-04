@@ -1,4 +1,4 @@
-class CreateQueuedGames < ActiveRecord::Migration
+class CreateQueuedGames < ActiveRecord::Migration[4.2]
   def change
     create_table :queued_games do |t|
       t.integer :game_id, limit: 8

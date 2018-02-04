@@ -31,7 +31,7 @@ RSpec.describe AccountsController, type: :controller do
 
   describe 'GET #show' do
 
-    let(:action) { get :show, id: account_id }
+    let(:action) { get :show, params: { id: account_id } }
 
     before { account }
 
@@ -55,7 +55,7 @@ RSpec.describe AccountsController, type: :controller do
 
   describe 'GET #edit' do
 
-    let(:action) { get :edit, id: account_id }
+    let(:action) { get :edit, params: { id: account_id } }
 
     before { account }
 
@@ -68,7 +68,7 @@ RSpec.describe AccountsController, type: :controller do
 
   describe 'POST #create' do
 
-    let(:action) { post :create, email: email, password: password }
+    let(:action) { post :create, params: { email: email, password: password } }
 
     context 'given that the account info provided allows a successful login' do
       before { allow(LoginService).to receive(:perform_login) { session } }
@@ -95,7 +95,7 @@ RSpec.describe AccountsController, type: :controller do
 
   describe 'PUT #update' do
 
-    let(:action) { put :update, id: account_id, email: email, password: password }
+    let(:action) { put :update, params: { id: account_id, email: email, password: password } }
 
     let(:account_id) { user_id }
 
@@ -132,7 +132,7 @@ RSpec.describe AccountsController, type: :controller do
 
   describe 'DELETE #destroy' do
 
-    let(:action) { delete :destroy, id: account_id }
+    let(:action) { delete :destroy, params: { id: account_id } }
 
     before { account }
 

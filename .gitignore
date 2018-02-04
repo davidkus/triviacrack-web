@@ -12,8 +12,11 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
+/log/
 /tmp
 
+/coverage/
+
 /.env
+
+/.byebug_history

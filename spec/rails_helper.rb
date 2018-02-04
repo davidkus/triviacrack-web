@@ -6,6 +6,14 @@ require 'rspec/rails'
 require 'shoulda/matchers'
 require 'rspec/active_job'
 require 'devise'
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -26,8 +34,8 @@ require 'devise'
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 
-FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
-FactoryGirl.find_definitions
+FactoryBot.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+FactoryBot.find_definitions
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -37,7 +45,7 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :controller
 
   config.render_views
 

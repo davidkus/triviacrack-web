@@ -1,42 +1,35 @@
-ruby "2.2.1"
+#ruby=ruby-2.4.1
+#ruby-gemset=triviacrack-web
+
+ruby "2.4.1"
 
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
-gem 'thin', '~> 1.6.3'
-# Use postgres as the database for Active Record
-gem 'pg', '~> 0.18.1'
-gem 'rails-bigint-pk', '~> 1.2.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'rails', '5.1.4'
+gem 'thin', '1.7.2'
 
-gem 'devise', '~> 3.4.1'
+gem 'pg', '0.21.0'
+gem 'rails-bigint-primarykey', '2.0.0'
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sass-rails', '5.0.7'
+gem 'uglifier', '4.1.5'
 
-gem 'resque', '~> 1.25.2'
-gem 'resque-scheduler', '~> 4.0.0'
+gem 'devise', '4.4.1'
 
-gem 'pundit', '~> 0.3.0'
+gem 'jquery-rails', '4.3.1'
+gem 'turbolinks', '5.1.0'
+gem 'jbuilder', '2.7.0'
+
+gem 'resque', '1.27.4'
+gem 'resque-scheduler', '4.3.1'
+gem 'redis', '< 4'
+
+gem 'pundit', '1.1.0'
 
 gem 'triviacrack', github: 'davidkus/triviacrack'
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
+gem 'semantic-ui-sass', '2.2.14'
 
-gem 'resque-web', require: 'resque_web'
+gem 'resque-web', '0.0.12', require: 'resque_web'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -47,29 +40,24 @@ gem 'resque-web', require: 'resque_web'
 # Use Capistrano for deploymentb
 # gem 'capistrano-rails', group: :development
 
+gem 'sdoc', '1.0.0.rc3', group: :doc
+
+group :development do
+  gem 'web-console', '3.5.1'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
-  gem 'rspec-rails', '~> 3.2.1'
-
-  gem 'rspec-its', '~> 1.2.0', require: false
-
-  gem 'factory_girl', '~> 4.5.0', require: false
-
-  gem 'shoulda-matchers', '~> 2.8.0', require: false
-
-  gem 'faker', '~> 1.4.3', require: false
-
-  gem 'rspec-activejob', '~> 0.2.0', require: false
-
-  gem 'fuubar', '~> 2.0.0'
-
-  gem 'codeclimate-test-reporter', '~> 0.4.7', require: false
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
+  gem 'rspec-rails', '3.7.2'
+  gem 'rails-controller-testing'
+  gem 'rspec-its', '1.2.0', require: false
+  gem 'factory_bot', '4.8.2', require: false
+  gem 'shoulda-matchers', '3.1.2'
+  gem 'faker', '1.8.7', require: false
+  gem 'rspec-activejob', '0.6.1', require: false
+  gem 'fuubar', '2.3.1'
+  gem 'simplecov', '0.15.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

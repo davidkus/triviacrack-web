@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :queued_game do
     game_id     {Faker::Number.number(10)}
 
