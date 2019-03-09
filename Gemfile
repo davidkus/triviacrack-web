@@ -5,7 +5,7 @@ ruby "2.4.1"
 
 source 'https://rubygems.org'
 
-gem 'rails', '5.1.4'
+gem 'rails', '5.1.6.1'
 gem 'thin', '1.7.2'
 
 gem 'pg', '0.21.0'
