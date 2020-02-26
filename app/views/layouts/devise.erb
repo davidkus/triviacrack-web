@@ -8,8 +8,15 @@
 </head>
 <body>
 
+<% if user_signed_in? %>
+  <%= render "layouts/menu" %>
+<% else %>
+  <%= render "layouts/visitor_menu" %>
+<% end %>
+
 <div class="ui middle aligned center aligned grid" style="height: 100%;">
   <div class="column six wide">
+    <%= semantic_flash %>
     <%= yield %>
   </div>
 </div>
