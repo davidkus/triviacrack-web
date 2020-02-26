@@ -1,4 +1,4 @@
-# TriviaCrack Bot [![Build Status](https://travis-ci.org/davidkus/triviacrack-web.svg?branch=master)](https://travis-ci.org/davidkus/triviacrack-web) [![Code Climate](https://codeclimate.com/github/davidkus/triviacrack-web/badges/gpa.svg)](https://codeclimate.com/github/davidkus/triviacrack-web) [![Test Coverage](https://codeclimate.com/github/davidkus/triviacrack-web/badges/coverage.svg)](https://codeclimate.com/github/davidkus/triviacrack-web)
+# TriviaCrack Bot ![CI](https://github.com/davidkus/triviacrack-web/workflows/CI/badge.svg) [![Code Climate](https://codeclimate.com/github/davidkus/triviacrack-web/badges/gpa.svg)](https://codeclimate.com/github/davidkus/triviacrack-web) [![Test Coverage](https://codeclimate.com/github/davidkus/triviacrack-web/badges/coverage.svg)](https://codeclimate.com/github/davidkus/triviacrack-web)
 
 A web application that provides access to the Trivia Crack [bot](https://github.com/davidkus/triviacrack).
 
