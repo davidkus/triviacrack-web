@@ -5,7 +5,7 @@ FactoryBot.define do
 
     factory :user_with_accounts do
       transient do
-        account_count 1
+        account_count { 1 }
       end
 
       after(:create) do |user, evaluator|

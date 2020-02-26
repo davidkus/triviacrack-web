@@ -10,8 +10,8 @@ RSpec.describe AccountsController, type: :controller do
   let(:session) { double(username: username, user_id: user_id, session_id: session_id, expiration: expiration) }
   let(:username) { Faker::Internet.user_name }
   let(:user_id) { 123 }
-  let(:session_id) { Faker::Lorem.characters(20) }
-  let(:expiration) { Faker::Time.forward(30) }
+  let(:session_id) { Faker::Lorem.characters(number: 20) }
+  let(:expiration) { Faker::Time.forward(days: 30) }
 
   # Account
   let(:account) { create(:account, id: account_id, user: user) }

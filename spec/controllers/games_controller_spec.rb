@@ -12,8 +12,8 @@ RSpec.describe GamesController, type: :controller do
 
     # TriviaCrack::Game
     let(:game) { double(id: game_id, expiration_date: expiration, playable?: playable, game_status: game_status) }
-    let(:game_id) { Faker::Number.number(5) }
-    let(:expiration) { Faker::Time.forward(20) }
+    let(:game_id) { Faker::Number.number(digits: 5) }
+    let(:expiration) { Faker::Time.forward(days: 20) }
     let(:playable) { true }
     let(:game_status) { :active }
 
@@ -21,7 +21,7 @@ RSpec.describe GamesController, type: :controller do
     let(:opponent) { double(username: username, facebook_id: facebook_id, facebook_name: facebook_name) }
     let(:username) { Faker::Internet.user_name }
     let(:facebook_name) { Faker::Name.name }
-    let(:facebook_id) { Faker::Lorem.characters(20) }
+    let(:facebook_id) { Faker::Lorem.characters(number: 20) }
 
     # TriviaCrack::GameStatistics - my statistics
     let(:my_statistics) { double(crowns: my_crowns) }
@@ -127,7 +127,7 @@ RSpec.describe GamesController, type: :controller do
     # Account
     before { create(:account, id: account_id, user: user, session_id: session_id) }
     let(:account_id) { 12345 }
-    let(:session_id) { Faker::Lorem.characters(20) }
+    let(:session_id) { Faker::Lorem.characters(number: 20) }
 
     before { allow(GameService).to receive(:new_game) { game } }
 
@@ -153,9 +153,9 @@ RSpec.describe GamesController, type: :controller do
     # Account
     before { create(:account, id: account_id, user: user, session_id: session_id) }
     let(:account_id) { 12345 }
-    let(:session_id) { Faker::Lorem.characters(20) }
+    let(:session_id) { Faker::Lorem.characters(number: 20) }
 
-    let(:game_id) { Faker::Number.number(4) }
+    let(:game_id) { Faker::Number.leading_zero_number(digits: 4) }
 
     it { expect{ action }.to enqueue_a(PlayGameJob).with account_id, session_id, game_id }
   end
