@@ -1,8 +1,6 @@
 #ruby=ruby-2.6.5
 #ruby-gemset=triviacrack-web
 
-ruby "2.6.5"
-
 source 'https://rubygems.org'
 
 gem 'rails', '6.0.2.1'
