@@ -15,7 +15,7 @@ RSpec.describe UserService do
     subject { UserService.get_user account }
 
     context 'when the API client returns an error' do
-      before { allow(client).to receive(:get_user).and_raise TriviaCrack::Errors::RequestError, 400 }
+      before { allow(client).to receive(:get_user).and_raise TriviaCrack::Errors::RequestError.new 400, "", {} }
 
       it { is_expected.to be false }
     end

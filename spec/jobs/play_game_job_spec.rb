@@ -25,7 +25,7 @@ RSpec.describe PlayGameJob, type: :job do
     subject(:perform) { job.perform account_id, session, game_id }
 
     context 'given that any of the requests fail' do
-      before { allow(client).to receive(:answer_question).and_raise TriviaCrack::Errors::RequestError, 400 }
+      before { allow(client).to receive(:answer_question).and_raise TriviaCrack::Errors::RequestError.new 400, "" , {} }
 
       specify { expect{ perform }.to raise_error TriviaCrack::Errors::RequestError }
     end
