@@ -48,6 +48,8 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.active_storage.service = :local
+
   ENV["REDIS_URL"] = 'redis://localhost:6379'
   ENV["DEVISE_SECRET_KEY"] = 'c707148dbea1a3ce1d0cb157a3c5a9a2cc2321bd7f03ba4691e638f0dfb1ab69756e1a9d5069c4dfb7adb76cde62adde8caf77e74e8836da045787f14da38c3a'
 
