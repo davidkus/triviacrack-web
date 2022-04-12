@@ -23,9 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - uses: actions/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0
+          ruby-version: .ruby-version
 
       - name: Install PostgreSQL 11 client
         run: |
