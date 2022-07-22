@@ -1,13 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe GamesController, type: :controller do
-
   let(:user) { create(:user_with_accounts) }
 
   before { sign_in user }
 
-  describe 'GET #index' do
-
+  describe "GET #index" do
     let(:action) { get :index }
 
     # TriviaCrack::Game
@@ -29,7 +27,7 @@ RSpec.describe GamesController, type: :controller do
 
     # TriviaCrack::GameStatistics - their statistics
     let(:opponent_statistics) { double(crowns: their_crowns) }
-    let(:their_crowns) { [:arts, :science] }
+    let(:their_crowns) { %i[arts science] }
 
     before { allow(game).to receive(:opponent) { opponent } }
     before { allow(game).to receive(:my_statistics) { my_statistics } }
@@ -39,53 +37,52 @@ RSpec.describe GamesController, type: :controller do
 
     before { action }
 
-    context 'when the game is playable' do
+    context "when the game is playable" do
       let(:playable) { true }
 
-      it { expect(assigns :playable_games).to_not be_empty }
-      it { expect(assigns :their_turn_games).to be_empty }
-      it { expect(assigns :pending_games).to be_empty }
-      it { expect(assigns :finished_games).to be_empty }
+      it { expect(assigns(:playable_games)).to_not be_empty }
+      it { expect(assigns(:their_turn_games)).to be_empty }
+      it { expect(assigns(:pending_games)).to be_empty }
+      it { expect(assigns(:finished_games)).to be_empty }
     end
 
-    context 'when the game is not playable' do
+    context "when the game is not playable" do
       let(:playable) { false }
 
-      context 'when the game status is active' do
+      context "when the game status is active" do
         let(:game_status) { :active }
 
-        it { expect(assigns :playable_games).to be_empty }
-        it { expect(assigns :their_turn_games).to_not be_empty }
-        it { expect(assigns :pending_games).to be_empty }
-        it { expect(assigns :finished_games).to be_empty }
+        it { expect(assigns(:playable_games)).to be_empty }
+        it { expect(assigns(:their_turn_games)).to_not be_empty }
+        it { expect(assigns(:pending_games)).to be_empty }
+        it { expect(assigns(:finished_games)).to be_empty }
       end
 
-      context 'when the game status is pending approval' do
+      context "when the game status is pending approval" do
         let(:game_status) { :pending_approval }
 
-        it { expect(assigns :playable_games).to be_empty }
-        it { expect(assigns :their_turn_games).to be_empty }
-        it { expect(assigns :pending_games).to_not be_empty }
-        it { expect(assigns :finished_games).to be_empty }
+        it { expect(assigns(:playable_games)).to be_empty }
+        it { expect(assigns(:their_turn_games)).to be_empty }
+        it { expect(assigns(:pending_games)).to_not be_empty }
+        it { expect(assigns(:finished_games)).to be_empty }
       end
     end
 
-    context 'when the game status is ended' do
+    context "when the game status is ended" do
       let(:playable) { false }
       let(:game_status) { :ended }
 
-      it { expect(assigns :playable_games).to be_empty }
-      it { expect(assigns :their_turn_games).to be_empty }
-      it { expect(assigns :pending_games).to be_empty }
-      it { expect(assigns :finished_games).to_not be_empty }
+      it { expect(assigns(:playable_games)).to be_empty }
+      it { expect(assigns(:their_turn_games)).to be_empty }
+      it { expect(assigns(:pending_games)).to be_empty }
+      it { expect(assigns(:finished_games)).to_not be_empty }
     end
 
     it { is_expected.to respond_with :ok }
     it { is_expected.to render_template :index }
   end
 
-  describe 'GET #new' do
-
+  describe "GET #new" do
     let(:action) { get :new }
 
     # TriviaCrack::User
@@ -98,7 +95,7 @@ RSpec.describe GamesController, type: :controller do
 
     before { action }
 
-    context 'given that the account has unlimited lives' do
+    context "given that the account has unlimited lives" do
       let(:unlimited_lives) { true }
       let(:lives) { 0 }
 
@@ -107,7 +104,7 @@ RSpec.describe GamesController, type: :controller do
       its(:size) { is_expected.to be 1 }
     end
 
-    context 'given that the account has no lives' do
+    context "given that the account has no lives" do
       let(:unlimited_lives) { false }
       let(:lives) { 0 }
 
@@ -120,43 +117,41 @@ RSpec.describe GamesController, type: :controller do
     it { is_expected.to render_template :new }
   end
 
-  describe 'POST #create' do
-
+  describe "POST #create" do
     let(:action) { post :create, params: { account_id: account_id } }
 
     # Account
     before { create(:account, id: account_id, user: user, session_id: session_id) }
-    let(:account_id) { 12345 }
+    let(:account_id) { 12_345 }
     let(:session_id) { Faker::Lorem.characters(number: 20) }
 
     before { allow(GameService).to receive(:new_game) { game } }
 
     before { action }
 
-    context 'given that the game cannot be found' do
+    context "given that the game cannot be found" do
       let(:game) { false }
 
       it { is_expected.to redirect_to new_game_url }
     end
 
-    context 'given that the game can be found' do
-      let(:game) { double() }
+    context "given that the game can be found" do
+      let(:game) { double }
 
       it { is_expected.to redirect_to games_url }
     end
   end
 
-  describe 'PUT #play_game' do
-
+  describe "PUT #play_game" do
     let(:action) { put :play_game, params: { account_id: account_id, game_id: game_id } }
 
     # Account
     before { create(:account, id: account_id, user: user, session_id: session_id) }
-    let(:account_id) { 12345 }
+    let(:account_id) { 12_345 }
     let(:session_id) { Faker::Lorem.characters(number: 20) }
 
     let(:game_id) { Faker::Number.leading_zero_number(digits: 4) }
 
-    it { expect{ action }.to enqueue_a(PlayGameJob).with account_id, session_id, game_id }
+    it { expect { action }.to enqueue_a(PlayGameJob).with account_id, session_id, game_id }
   end
 end

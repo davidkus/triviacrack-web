@@ -1,5 +1,7 @@
-class User < ActiveRecord::Base
-  has_many :accounts
+# frozen_string_literal: true
+
+class User < ApplicationRecord
+  has_many :accounts, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

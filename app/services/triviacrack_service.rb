@@ -1,22 +1,18 @@
+# frozen_string_literal: true
+
 module TriviaCrackService
-
   private
-
-  def request(account = nil)
-    begin
+    def request(account = nil)
       client = TriviaCrack::API::Client.new
 
-      if account
-        client.set_session account.session_id, account.id
-      end
+      client.set_session account.session_id, account.id if account
 
       if block_given?
         yield client
       else
-        return false
+        false
       end
-    rescue TriviaCrack::Errors::RequestError => e
-      return false
+    rescue TriviaCrack::Errors::RequestError => _e
+      false
     end
-  end
 end

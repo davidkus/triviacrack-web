@@ -1,13 +1,12 @@
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe AccountPolicy do
-
   let(:owning_user) { build(:user) }
   let(:account) { build(:account, user: owning_user) }
 
   subject { AccountPolicy.new user, account }
 
-  context 'for the owner of the account' do
+  context "for the owner of the account" do
     let(:user) { owning_user }
 
     it { is_expected.to permit_action :show }
@@ -18,7 +17,7 @@ RSpec.describe AccountPolicy do
     it { is_expected.to permit_action :play_game }
   end
 
-  context 'for some different user' do
+  context "for some different user" do
     let(:user) { build(:user) }
 
     it { is_expected.to_not permit_action :show }

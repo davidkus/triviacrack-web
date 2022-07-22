@@ -1,4 +1,6 @@
-require 'triviacrack_service'
+# frozen_string_literal: true
+
+require "triviacrack_service"
 
 module LoginService
   extend TriviaCrackService

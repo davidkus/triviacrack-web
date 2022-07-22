@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
-  after_action :verify_authorized, except: [:index, :new, :create]
+  before_action :set_account, only: %i[show edit update destroy]
+  after_action :verify_authorized, except: %i[index new create]
 
   # GET /accounts
   # GET /accounts.json
@@ -41,12 +43,12 @@ class AccountsController < ApplicationController
       @account.expiration = session.expiration
       @account.user = current_user
     else
-      flash.now[:alert] = I18n.t('accounts.invalid_username_password')
+      flash.now[:alert] = I18n.t("accounts.invalid_username_password")
     end
 
     respond_to do |format|
-      if session && @account.save  
-        format.html { redirect_to @account, notice: I18n.t('accounts.account_linked') }
+      if session && @account.save
+        format.html { redirect_to @account, notice: I18n.t("accounts.account_linked") }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
@@ -70,16 +72,14 @@ class AccountsController < ApplicationController
       @account.expiration = session.expiration
       correct_account = session.user_id == @account.id
     else
-      flash.now[:alert] = I18n.t('accounts.invalid_username_password')
+      flash.now[:alert] = I18n.t("accounts.invalid_username_password")
     end
 
-    if session && !correct_account
-      flash.now[:alert] = I18n.t('accounts.invalid_account')
-    end
+    flash.now[:alert] = I18n.t("accounts.invalid_account") if session && !correct_account
 
     respond_to do |format|
       if correct_account && session && @account.save
-        format.html { redirect_to @account, notice: I18n.t('accounts.account_linked') }
+        format.html { redirect_to @account, notice: I18n.t("accounts.account_linked") }
         format.json { render :show, status: :ok, location: @account }
       else
         format.html { render :edit }
@@ -95,7 +95,7 @@ class AccountsController < ApplicationController
 
     @account.destroy
     respond_to do |format|
-      format.html { redirect_to accounts_url, notice: I18n.t('accounts.account_unlinked') }
+      format.html { redirect_to accounts_url, notice: I18n.t("accounts.account_unlinked") }
       format.json { head :no_content }
     end
   end

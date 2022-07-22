@@ -1,13 +1,15 @@
-require 'triviacrack_service'
+# frozen_string_literal: true
+
+require "triviacrack_service"
 
 module GameService
   extend TriviaCrackService
 
   def self.get_games(account)
-    request(account) { |client| client.get_games }
+    request(account, &:get_games)
   end
 
   def self.new_game(account)
-    request(account) { |client| client.start_new_game }
+    request(account, &:start_new_game)
   end
 end

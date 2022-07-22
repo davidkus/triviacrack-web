@@ -14,9 +14,9 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { :host => 'localhost:5000' }
+  config.action_mailer.default_url_options = { host: "localhost:5000" }
 
-  Rails.application.routes.default_url_options[:host] = 'localhost:5000'
+  Rails.application.routes.default_url_options[:host] = "localhost:5000"
 
   config.action_mailer.smtp_settings = {
     address: ENV["EMAIL_HOST"],
@@ -50,8 +50,9 @@ Rails.application.configure do
 
   config.active_storage.service = :local
 
-  ENV["REDIS_URL"] = 'redis://localhost:6379'
-  ENV["DEVISE_SECRET_KEY"] = 'c707148dbea1a3ce1d0cb157a3c5a9a2cc2321bd7f03ba4691e638f0dfb1ab69756e1a9d5069c4dfb7adb76cde62adde8caf77e74e8836da045787f14da38c3a'
+  ENV["REDIS_URL"] = "redis://localhost:6379"
+  ENV["DEVISE_SECRET_KEY"] =
+    "c707148dbea1a3ce1d0cb157a3c5a9a2cc2321bd7f03ba4691e638f0dfb1ab69756e1a9d5069c4dfb7adb76cde62adde8caf77e74e8836da045787f14da38c3a"
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

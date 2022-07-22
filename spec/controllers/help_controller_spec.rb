@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe HelpController, type: :controller do
-
-  describe 'GET #index' do
-
+  describe "GET #index" do
     let(:action) { get :index }
 
     before { action }

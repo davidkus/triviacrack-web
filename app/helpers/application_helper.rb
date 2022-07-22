@@ -1,5 +1,6 @@
-module ApplicationHelper
+# frozen_string_literal: true
 
+module ApplicationHelper
   def error_messages(resource)
     return "" if resource.errors.empty?
 
@@ -17,7 +18,6 @@ module ApplicationHelper
     </div>
     HTML
 
-    html.html_safe
+    html.html_safe # rubocop:disable Rails/OutputSafety
   end
-
 end
