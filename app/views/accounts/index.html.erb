@@ -18,7 +18,11 @@
         <div class="header">
           <%= link_to account.username, account_path(account) %>
         </div>
-        <%= t('accounts.session_expires_in') %> <%= time_ago_in_words account.expiration %>
+        <% if account.expiration.future? %>
+          <%= t('accounts.session_expires_in', time: time_ago_in_words(account.expiration)) %>
+        <% else %>
+          <%= t('accounts.session_expired', time: time_ago_in_words(account.expiration)) %>
+        <% end %>
       </div>
       <div class="right floated">
         <%= link_to I18n.t('accounts.renew'), edit_account_path(account),
