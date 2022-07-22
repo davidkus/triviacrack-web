@@ -57,6 +57,8 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
 
+  gem "annotate"
+
   gem "rubocop"
   gem "rubocop-rails", require: false
   gem "rubocop-performance", require: false
