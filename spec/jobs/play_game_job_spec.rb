@@ -17,7 +17,7 @@ RSpec.describe PlayGameJob, type: :job do
   let(:session) { "session" }
   let(:job) { PlayGameJob.new account_id, session, game_id }
 
-  let(:account) { create(:account, id: account_id) }
+  let!(:account) { create(:account, id: account_id) }
 
   describe "#perform" do
     subject(:perform) { job.perform account_id, session, game_id }

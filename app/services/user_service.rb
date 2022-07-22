@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "triviacrack_service"
+require "trivia_crack_service"
 
 module UserService
   extend TriviaCrackService
