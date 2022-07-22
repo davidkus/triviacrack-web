@@ -59,6 +59,9 @@ group :development, :test do
 
   gem "annotate"
 
+  gem "solargraph"
+  gem "solargraph-rails"
+
   gem "rubocop"
   gem "rubocop-rails", require: false
   gem "rubocop-performance", require: false
