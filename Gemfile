@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-# ruby=ruby-3.0.2
+# ruby=ruby-3.1.2
 # ruby-gemset=triviacrack-web
 
 source "https://rubygems.org"
 
-ruby "3.0.2"
+ruby "3.1.2"
 
 gem "rails", "7.0.3.1"
 gem "thin", "1.8.1"
@@ -28,7 +28,7 @@ gem "resque-scheduler", "4.5.0"
 gem "pundit", "2.2.0"
 
 gem "semantic-ui-sass", "2.4.4.0"
-gem "triviacrack", "0.6.0"
+gem "triviacrack", "0.8.0"
 
 gem "resque-web", "0.0.12", require: "resque_web"
 
@@ -43,7 +43,7 @@ end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "byebug"
+  gem "debug"
   gem "factory_bot", "6.2.1", require: false
   gem "faker", "2.21.0", require: false
   gem "fuubar", "2.5.1"
