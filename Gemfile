@@ -53,6 +53,7 @@ group :development, :test do
   gem "rspec-rails", "5.1.2"
   gem "shoulda-matchers", "5.1.0"
   gem "simplecov", "0.21.2"
+  gem "letter_opener_web", "2.0.0"
 
   gem "annotate"
 

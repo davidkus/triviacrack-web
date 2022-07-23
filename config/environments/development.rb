@@ -18,19 +18,11 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: "localhost:5000" }
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
 
-  Rails.application.routes.default_url_options[:host] = "localhost:5000"
+  Rails.application.routes.default_url_options[:host] = "localhost:3000"
 
-  config.action_mailer.smtp_settings = {
-    address: ENV["EMAIL_HOST"],
-    port: 587,
-    domain: ENV["EMAIL_DOMAIN"],
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["EMAIL_USERNAME"],
-    password: ENV["EMAIL_PASSWORD"]
-  }
+  config.action_mailer.delivery_method = :letter_opener
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

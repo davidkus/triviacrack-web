@@ -75,13 +75,13 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = ENV["APP_HOST"]
 
   config.action_mailer.smtp_settings = {
-    address: ENV["EMAIL_HOST"],
+    address: "kus.dk",
     port: 587,
-    domain: ENV["EMAIL_DOMAIN"],
+    domain: "smtp.sendgrid.net",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["EMAIL_USERNAME"],
-    password: ENV["EMAIL_PASSWORD"]
+    user_name: "apikey",
+    password: Rails.application.credentials.email.api_key
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
