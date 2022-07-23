@@ -26,18 +26,11 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
+          bundler-cache: true
 
       - name: Install PostgreSQL 11 client
         run: |
           sudo apt-get -yqq install libpq-dev
-
-      - name: Bundle Install
-        env:
-          RAILS_ENV: test
-        run: |
-          gem install bundler
-          bundle install --jobs 4 --retry 3
-          bin/rails db:setup
 
       - name: RuboCop Linter Action
         uses: andrewmcodes/rubocop-linter-action@v3.3.0
