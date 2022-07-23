@@ -22,4 +22,6 @@ class Account < ApplicationRecord
   has_many :queued_games, dependent: :destroy
 
   validates :id, uniqueness: true
+
+  encrypts :session_id
 end

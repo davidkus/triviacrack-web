@@ -20,3 +20,5 @@
 /.env
 
 /.byebug_history
+
+/config/credentials/production.key

@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.active_record.encryption.primary_key = "cfBoZ1M8c2XaVLmCVogoLdSZ5iFDveME"
+  config.active_record.encryption.deterministic_key = "W5BjM0yzufXWZZFMV6h4PyckK6vavMTk"
+  config.active_record.encryption.key_derivation_salt = "XAvI6sBBpmr7LbSWx3Blh0MVylZUvOf3"
+
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped

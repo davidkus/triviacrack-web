@@ -1,6 +1,12 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.require_master_key = true
+
+  config.active_record.encryption.primary_key = Rails.application.credentials.active_record_encryption.primary_key
+  config.active_record.encryption.deterministic_key = Rails.application.credentials.active_record_encryption.deterministic_key
+  config.active_record.encryption.key_derivation_salt = Rails.application.credentials.active_record_encryption.key_derivation_salt
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.active_record.encryption.primary_key = "QJz0kshoMKpEeNiPjCdxom0u53CFkx8V"
+  config.active_record.encryption.deterministic_key = "NQ6k55EaLeUqGHYPY5r2MuOdXi4KJngI"
+  config.active_record.encryption.key_derivation_salt = "Ia6NmpyJddFn2k4Er1KHxW2OpDEQbqrd"
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
