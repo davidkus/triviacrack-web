@@ -32,6 +32,11 @@ jobs:
         run: |
           sudo apt-get -yqq install libpq-dev
 
+      - name: DB Setup
+        run: bin/rails db:setup
+        env:
+          RAILS_ENV: test
+
       - name: RuboCop Linter Action
         uses: andrewmcodes/rubocop-linter-action@v3.3.0
         env:
