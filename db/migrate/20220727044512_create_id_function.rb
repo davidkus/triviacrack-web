@@ -2,7 +2,6 @@ class CreateIdFunction < ActiveRecord::Migration[7.0]
   def up
     execute <<-SQL
       CREATE SEQUENCE public.global_id_seq;
-      ALTER SEQUENCE public.global_id_seq OWNER TO postgres;
 
       -- 43 bits for time  - ~278 years
       -- 10 bits for shard - 1024 shards
@@ -27,8 +26,6 @@ class CreateIdFunction < ActiveRecord::Migration[7.0]
         return result;
       END;
       $BODY$;
-
-      ALTER FUNCTION public.next_id() OWNER TO postgres;
     SQL
   end
 
