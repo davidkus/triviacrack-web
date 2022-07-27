@@ -36,8 +36,6 @@ CREATE FUNCTION public.next_id() RETURNS bigint
 
 SET default_tablespace = '';
 
-SET default_table_access_method = heap;
-
 --
 -- Name: accounts; Type: TABLE; Schema: public; Owner: -
 --
@@ -47,8 +45,8 @@ CREATE TABLE public.accounts (
     username character varying,
     session_id character varying,
     user_id bigint,
-    created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
     expiration timestamp without time zone,
     email character varying
 );
@@ -86,8 +84,8 @@ CREATE TABLE public.queued_games (
     id bigint DEFAULT public.next_id() NOT NULL,
     game_id bigint,
     account_id bigint,
-    created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -106,8 +104,8 @@ CREATE TABLE public.schema_migrations (
 
 CREATE TABLE public.users (
     id bigint DEFAULT public.next_id() NOT NULL,
-    created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
     email character varying DEFAULT ''::character varying NOT NULL,
     encrypted_password character varying DEFAULT ''::character varying NOT NULL,
     reset_password_token character varying,
