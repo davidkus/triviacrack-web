@@ -22,15 +22,12 @@ gem "jquery-rails", "4.5.0"
 gem "turbolinks", "5.2.1"
 
 gem "redis", "4.7.1"
-gem "resque", "2.2.1"
-gem "resque-scheduler", "4.5.0"
+gem "sidekiq"
 
 gem "pundit", "2.2.0"
 
 gem "semantic-ui-sass", "2.4.4.0"
 gem "triviacrack", "0.8.0"
-
-gem "resque-web", "0.0.12", require: "resque_web"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

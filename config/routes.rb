@@ -1,4 +1,4 @@
-require "resque_web"
+require "sidekiq/web"
 
 Rails.application.routes.draw do
   get "help", to: "help#index"
@@ -13,15 +13,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resque_web_constraint = lambda do |request|
-    current_user = request.env["warden"].user
-    is_admin = current_user.present? && current_user.respond_to?(:admin?) && current_user.admin?
-    request.remote_ip == "127.0.0.1" || request.remote_ip == "::1" || is_admin
-  end
-
-  # Resque Web
-  constraints resque_web_constraint do
-    mount ResqueWeb::Engine => "/resque_web"
-    ResqueWeb::Engine.eager_load!
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => "/sidekiq"
   end
 end
