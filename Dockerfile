@@ -80,6 +80,8 @@ COPY --from=node_modules /app/node_modules /app/node_modules
 ENV SECRET_KEY_BASE 1
 
 COPY . .
+RUN --mount=type=secret,id=RAILS_MASTER_KEY \
+    RAILS_MASTER_KEY="$(cat /run/secrets/RAILS_MASTER_KEY)" bundle exec rails assets:precompile
 
 ENV PORT 8080
 

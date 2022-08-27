@@ -12,7 +12,7 @@ processes = []
     RUBY_VERSION = "3.1.2"
 
 [deploy]
-  release_command = "bundle exec rails assets:precompile db:migrate"
+  release_command = "bundle exec rails db:migrate"
 
 [env]
   PORT = "8080"

@@ -4,6 +4,12 @@ A web application that provides access to the Trivia Crack [bot](https://github.
 
 See the [demo](https://triviacrack-web.fly.dev).
 
+## Deploy
+
+```
+fly deploy --build-secret RAILS_MASTER_KEY=$(cat config/credentials/production.key)
+```
+
 ## License
 
 See LICENSE.txt
