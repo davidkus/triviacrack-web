@@ -2,7 +2,7 @@
 
 A web application that provides access to the Trivia Crack [bot](https://github.com/davidkus/triviacrack).
 
-See the [demo](https://triviacrack-web.herokuapp.com).
+See the [demo](https://triviacrack-web.fly.dev).
 
 ## License
 

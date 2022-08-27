@@ -1,10 +1,8 @@
 development:
-  adapter: async
+  adapter: postgres
 
 test:
   adapter: test
 
 production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: triviacrack_web_production
+  adapter: postgres

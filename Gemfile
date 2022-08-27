@@ -12,6 +12,8 @@ gem "thin", "1.8.1"
 
 gem "pg", "1.4.1"
 
+gem "good_job", "~> 3.4"
+
 gem "sass-rails", "6.0.0"
 gem "uglifier", "4.2.0"
 
@@ -20,9 +22,6 @@ gem "devise", "4.8.1"
 gem "jbuilder", "2.11.5"
 gem "jquery-rails", "4.5.0"
 gem "turbolinks", "5.2.1"
-
-gem "redis", "4.7.1"
-gem "sidekiq"
 
 gem "pundit", "2.2.0"
 
