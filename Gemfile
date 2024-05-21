@@ -7,7 +7,7 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
-gem "rails", "7.0.3.1"
+gem "rails", "7.0.8.1"
 gem "thin", "1.8.1"
 
 gem "pg", "1.4.1"
