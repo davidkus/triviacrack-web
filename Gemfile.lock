@@ -235,7 +235,8 @@ GEM
       railties (>= 5.0)
     reverse_markdown (2.1.1)
       nokogiri
-    rexml (3.2.5)
+    rexml (3.2.8)
+      strscan (>= 3.0.9)
     rspec-activejob (0.6.1)
       activejob (>= 4.2)
       rspec-mocks
@@ -330,7 +331,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     stringio (3.0.2)
-    strscan (3.0.4)
+    strscan (3.1.0)
     thin (1.8.1)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
