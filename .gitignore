@@ -22,3 +22,5 @@
 /.byebug_history
 
 /config/credentials/production.key
+
+.DS_store
