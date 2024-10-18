@@ -42,6 +42,7 @@ jobs:
         with:
           skip_install: true
           use_bundler: true
+          reviewdog_flags: -fail-level=any
 
       - name: Run RSpec and Code Coverage
         uses: paambaati/codeclimate-action@v2.4.0
